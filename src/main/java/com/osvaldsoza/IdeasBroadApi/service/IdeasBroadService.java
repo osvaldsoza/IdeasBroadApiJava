@@ -14,16 +14,13 @@ public class IdeasBroadService {
     @Autowired
     private IdeasBroadRepository repository;
 
-    @Autowired
-    private IdeasBroad ideasBroad;
-
     public List<IdeasBroad> getAllIdeasBroad() {
-        return repository.findAll(sortByIdAsc());
+        return repository.findAll();
     }
 
-    private Sort sortByIdAsc() {
-        return new Sort(Sort.Direction.DESC, "created");
-    }
+//    private Sort sortByIdAsc() {
+//        return new Sort(Sort.Direction.DESC, "created");
+//    }
 
     public IdeasBroad newIdea(IdeasBroad ideasBroad) {
         return repository.save(ideasBroad);

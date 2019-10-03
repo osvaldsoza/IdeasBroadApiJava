@@ -7,18 +7,19 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "ideas")
 @Setter
 @Getter
 public class IdeasBroad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     @NotNull
     private String title;
     @NotNull
     private String description;
-//    @Column(name = "created", columnDefinition = "created default CURRENT_TIMESTAMP")
-//    @Temporal(TemporalType.TIMESTAMP)
+//   @Column(name = "created")
+//  @Temporal(TemporalType.TIMESTAMP)
 //    private Date dateCreated;
 }

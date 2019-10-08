@@ -20,7 +20,11 @@ public class IdeasBroadService {
 
 //    private Sort sortByIdAsc() {
 //        return new Sort(Sort.Direction.DESC, "created");
-//    }
+
+
+    public List<IdeasBroad> getIdeasBroadOrderByIdDesc() {
+        return repository.findAllIdeasOrderByIdDesc();
+    }
 
     public IdeasBroad newIdea(IdeasBroad ideasBroad) {
         return repository.save(ideasBroad);
@@ -29,5 +33,4 @@ public class IdeasBroadService {
     public void deleteIdea(IdeasBroad ideasBroad) {
         repository.delete(ideasBroad);
     }
-
 }

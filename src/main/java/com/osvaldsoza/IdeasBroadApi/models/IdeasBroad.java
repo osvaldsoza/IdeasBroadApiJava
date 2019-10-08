@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "ideas")
+@Table(name = "idea")
 @Setter
 @Getter
 public class IdeasBroad {
@@ -19,7 +19,4 @@ public class IdeasBroad {
     private String title;
     @NotNull
     private String description;
-//   @Column(name = "created")
-//  @Temporal(TemporalType.TIMESTAMP)
-//    private Date dateCreated;
 }

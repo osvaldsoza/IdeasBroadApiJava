@@ -7,22 +7,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ideas-broad")
+@RequestMapping("/ideasbroad")
 public class IdeasBroadController {
 
     @Autowired
     IdeasBroadService service;
 
+    @CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
     @GetMapping
-    public ResponseEntity<List<IdeasBroad>> getIdeas() {
-        List<IdeasBroad> ideasList = service.getAllIdeasBroad();
+    public ResponseEntity<List<IdeasBroad>> getIdeasOrderById() {
+        List<IdeasBroad> ideasList = service.getIdeasBroadOrderByIdDesc();
         return new ResponseEntity<>(ideasList, HttpStatus.OK);
     }
 
+    @CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
     @PostMapping
     public ResponseEntity<IdeasBroad> postIdea(@RequestBody IdeasBroad ideasBroad) {
         IdeasBroad idea = service.newIdea(ideasBroad);

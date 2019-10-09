@@ -11,19 +11,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ideasbroad")
+@CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
 public class IdeasBroadController {
 
     @Autowired
     IdeasBroadService service;
 
-    @CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
     @GetMapping
+    public ResponseEntity<List<IdeasBroad>> getIdeasOrderById1() {
+        List<IdeasBroad> ideas = service.getAllIdeasBroad();
+        return new ResponseEntity<>(ideas, HttpStatus.OK);
+    }
+
     public ResponseEntity<List<IdeasBroad>> getIdeasOrderById() {
         List<IdeasBroad> ideasList = service.getIdeasBroadOrderByIdDesc();
         return new ResponseEntity<>(ideasList, HttpStatus.OK);
     }
 
-    @CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
+    //@CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
     @PostMapping
     public ResponseEntity<IdeasBroad> postIdea(@RequestBody IdeasBroad ideasBroad) {
         IdeasBroad idea = service.newIdea(ideasBroad);

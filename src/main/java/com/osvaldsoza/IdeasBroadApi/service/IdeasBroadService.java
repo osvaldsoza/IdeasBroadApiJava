@@ -15,12 +15,8 @@ public class IdeasBroadService {
     private IdeasBroadRepository repository;
 
     public List<IdeasBroad> getAllIdeasBroad() {
-        return repository.findAll();
+        return repository.findAll(new Sort(Sort.Direction.DESC,"id"));
     }
-
-//    private Sort sortByIdAsc() {
-//        return new Sort(Sort.Direction.DESC, "created");
-
 
     public List<IdeasBroad> getIdeasBroadOrderByIdDesc() {
         return repository.findAllIdeasOrderByIdDesc();

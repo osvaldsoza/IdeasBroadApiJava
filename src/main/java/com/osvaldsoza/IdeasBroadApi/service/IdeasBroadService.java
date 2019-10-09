@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IdeasBroadService {
@@ -15,7 +16,7 @@ public class IdeasBroadService {
     private IdeasBroadRepository repository;
 
     public List<IdeasBroad> getAllIdeasBroad() {
-        return repository.findAll(new Sort(Sort.Direction.DESC,"id"));
+        return repository.findAll(new Sort(Sort.Direction.DESC, "id"));
     }
 
     public List<IdeasBroad> getIdeasBroadOrderByIdDesc() {
@@ -26,7 +27,10 @@ public class IdeasBroadService {
         return repository.save(ideasBroad);
     }
 
-    public void deleteIdea(IdeasBroad ideasBroad) {
-        repository.delete(ideasBroad);
+    public void deleteIdea(Long id) {
+        Optional<IdeasBroad> findIdeas = repository.findById(id);
+        if (findIdeas.isPresent()) {
+            repository.deleteById(id);
+        }
     }
 }

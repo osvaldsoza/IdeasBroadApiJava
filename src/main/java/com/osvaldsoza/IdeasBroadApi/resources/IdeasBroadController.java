@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ideasbroad")
-@CrossOrigin(maxAge = 10, origins = {"http://localhost:3000"})
+@CrossOrigin(maxAge = 10, origins = {"http://localhost:3001"})
 public class IdeasBroadController {
 
     @Autowired
@@ -35,5 +35,11 @@ public class IdeasBroadController {
 
         return new ResponseEntity<IdeasBroad>(idea, HttpStatus.CREATED);
 
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarIdea(@PathVariable Long id){
+         service.deleteIdea(id);
+         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -14,11 +14,7 @@ import java.util.List;
 
 @SpringBootApplication
 public class IdeasBroadApiApplication {
-
-
     public static void main(String[] args) {
         SpringApplication.run(IdeasBroadApiApplication.class, args);
     }
-
-
 }

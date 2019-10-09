@@ -12,4 +12,7 @@ public interface IdeasBroadRepository extends JpaRepository<IdeasBroad, Long> {
 
     @Query("SELECT i FROM IdeasBroad i ORDER BY id DESC")
     List<IdeasBroad> findAllIdeasOrderByIdDesc();
+
+
+
 }

@@ -2,6 +2,7 @@ package com.osvaldsoza.IdeasBroadApi.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -12,7 +13,8 @@ import javax.persistence.*;
 public class IdeasBroad {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     public Long id;
     private String title;
     private String description;

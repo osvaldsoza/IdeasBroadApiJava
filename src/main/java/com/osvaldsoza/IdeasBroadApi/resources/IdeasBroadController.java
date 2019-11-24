@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ideasbroad")
-@CrossOrigin(maxAge = 10, origins = {"https://ideasbroardui.herokuapp.com"})
+@CrossOrigin(maxAge = 10, origins = {"*"})
 public class IdeasBroadController {
 
     @Autowired
